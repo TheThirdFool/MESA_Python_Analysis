@@ -1,4 +1,6 @@
-#Draw Roche.
+#Draw Roche Lobe graph.
+#Written by Daniel Foulds-Holt 17/05/2020
+
 import math
 import matplotlib.pyplot as plt
 import numpy as np
