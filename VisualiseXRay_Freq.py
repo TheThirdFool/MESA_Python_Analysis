@@ -271,7 +271,7 @@ def PrintHelp2():
 	print "====================================="
 	print ""
 	print "In order to change the variable being plotted, head to the bottom"
-	print "of the code [line 311] and edit these lines to what you need:"
+	print "of the code [line 351] and edit these lines to what you need:"
 	print ""
 	print "  title  = 'FileTitle.png' # 'None' for no print"
 	print "  ytitle = 'ytitle' "
