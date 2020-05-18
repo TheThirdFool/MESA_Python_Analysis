@@ -316,6 +316,16 @@ def Main():
 		var    = 1
 		lloc   = "best"
 
+		#Var:
+		# 0 = NS Mass
+		# 1 = X-ray burst frequency
+		# 2 = X-ray burst time period
+		# 3 = Number of peaks analysed
+		# 4 = Average peak luminosity
+		# 5 = Average valley luminosity
+		# 6 = Average rise time
+		# 7 = Average fall time
+		
 		DrawData3(Res1[0],Res1[var],Res2[0],Res2[var],Res3[0],Res3[var],xtitle,ytitle,ylow,yhigh,title,lloc)
 
 		return
