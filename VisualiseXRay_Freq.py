@@ -104,19 +104,24 @@ def DrawData(Mass, Freq):
 
 	plt.show()
 
-def DrawData3(Mass1, Freq1, Mass2, Freq2, Mass3, Freq3):	
+def DrawData3(Mass1, Freq1, Mass2, Freq2, Mass3, Freq3, xtitle, ytitle, ylow, yhigh, title, lloc):	
 	plt.rcParams['font.serif'] = "Times New Roman"
 	plt.rcParams['font.family'] = "serif"
 	plt.rcParams['font.weight'] = "normal"
 	plt.rcParams['font.size'] = 14
 
 	plt.figure(figsize=(16, 8))
-	plt.xlabel("Star Mass, " r"$[ M\ /\ M_{\odot} ]$" , fontsize=18)  
-	plt.ylabel("X-Ray Burst Frequency, " r" $[ 1\ /\ \mathrm{Hrs} ]$", fontsize=18)
+#	plt.xlabel("Star Mass, " r"$[ M\ /\ M_{\odot} ]$" , fontsize=18)  
+#	plt.ylabel("X-Ray Burst Frequency, " r" $[ 1\ /\ \mathrm{Hrs} ]$", fontsize=18)
+#	plt.ylabel("Number of X-Ray Bursts", fontsize=18)
+	plt.xlabel(xtitle, fontsize=18)  
+	plt.ylabel(ytitle, fontsize=18)
 	plt.rc('xtick', labelsize=16) 
 	plt.rc('ytick', labelsize=16)
 	plt.xlim(1.1,1.8)
-	plt.ylim(0.7,2.2)
+#	plt.ylim(0.7,2.2)
+	if yhigh != -1:
+		plt.ylim(ylow,yhigh)
 
 	#=========================================================================================================================
 	plt.plot(Mass1, Freq1,"rD", label="X-Ray burst data - " r"$ \dot{\mathrm{M}}\ /\ \mathrm{M}_{\odot} = 1 \times 10^{-9} $", ms=5)
@@ -132,7 +137,7 @@ def DrawData3(Mass1, Freq1, Mass2, Freq2, Mass3, Freq3):
 	y_vals1 = z1[1] + z1[0] * x_vals1
 	#sting = "y = %:.2f x + %:.2f : Rsq = %:.3f",z[0], z[1], rsq
 	sting = "y = " + str(round(z1[0],2)) + " x + " + str(round(z1[1],2)) + " : Rsq = " + str(round(rsq1,3))
-	plt.plot(x_vals1, y_vals1, '--', color="Black")#, label=sting)
+	plt.plot(x_vals1, y_vals1, '--', color="maroon")#, label=sting)
 	#=========================================================================================================================
 
 	#=========================================================================================================================
@@ -166,14 +171,16 @@ def DrawData3(Mass1, Freq1, Mass2, Freq2, Mass3, Freq3):
 	#yfit.append(z[0] * 1.6 + z[1])
 	#plt.plot(xfit, yfit, "g--", label=f"y = {z[0]}x + {z[1]}")
 
-	plt.legend(loc="upper right")
+#	plt.legend(loc="upper right")
+	plt.legend(loc=lloc)
 
-	plt.savefig('MassFrequency_ALL.png', format='png', dpi=600)
-	print ""
-	print "------------------------------------------------"
-	print "The graph has been saved to 'MassFrequency_ALL.png'."
-	print "------------------------------------------------"
-	print ""
+	if title != "None":
+		plt.savefig(title, format='png', dpi=600)
+		print ""
+		print "------------------------------------------------"
+		print "The graph has been saved to '", title, "'."
+		print "------------------------------------------------"
+		print ""
 
 	plt.show()
 
@@ -298,7 +305,19 @@ def Main():
 		Res1 = GetData(sys.argv[1])
 		Res2 = GetData(sys.argv[2])
 		Res3 = GetData(sys.argv[3])
-		DrawData3(Res1[0],Res1[1],Res2[0],Res2[1],Res3[0],Res3[1])
+	#	DrawData3(Res1[0],Res1[1],Res2[0],Res2[1],Res3[0],Res3[1],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$",0.7,2.2,"MassFrequency_ALL.png","upper right")
+	#	DrawData3(Res1[0],Res1[3],Res2[0],Res2[3],Res3[0],Res3[3],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","Number of X-Ray Bursts", 0,15, "MassPkNo_ALL.png", "upper left")
+
+		title  = "None" # "None" for no print
+		ytitle = "Average Fall Time [hrs]$"
+		xtitle = "Star Mass, " r"$[ M\ /\ M_{\odot} ]$"
+		ylow   = 0.0
+		yhigh  = -1 # -1 for default
+		var    = 6
+		lloc   = "best"
+
+		DrawData3(Res1[0],Res1[var],Res2[0],Res2[var],Res3[0],Res3[var],xtitle,ytitle,ylow,yhigh,title,lloc)
+
 		return
 
 Main()
