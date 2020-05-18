@@ -308,12 +308,12 @@ def Main():
 	#	DrawData3(Res1[0],Res1[1],Res2[0],Res2[1],Res3[0],Res3[1],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$",0.7,2.2,"MassFrequency_ALL.png","upper right")
 	#	DrawData3(Res1[0],Res1[3],Res2[0],Res2[3],Res3[0],Res3[3],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","Number of X-Ray Bursts", 0,15, "MassPkNo_ALL.png", "upper left")
 
-		title  = "None" # "None" for no print
-		ytitle = "Average Fall Time [hrs]$"
+		title  = "Mass_XRayBurstFreq_ALL.png" # "None" for no print
+		ytitle = "X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$""
 		xtitle = "Star Mass, " r"$[ M\ /\ M_{\odot} ]$"
 		ylow   = 0.0
 		yhigh  = -1 # -1 for default
-		var    = 6
+		var    = 1
 		lloc   = "best"
 
 		DrawData3(Res1[0],Res1[var],Res2[0],Res2[var],Res3[0],Res3[var],xtitle,ytitle,ylow,yhigh,title,lloc)
