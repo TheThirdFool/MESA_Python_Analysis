@@ -14,13 +14,13 @@ Any problems that you can't figure out yourself, feel free to email me: df00177@
 
 In order to change the variable being plotted in 'VisualiseXRay_Freq.py' had to the bottom of the code [line 311] and edit these lines to what you need:
 
-		title  = "FileTitle.png" # "None" for no print
-		ytitle = "X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$"
-		xtitle = "Star Mass, " r"$[ M\ /\ M_{\odot} ]$"
-		ylow   = 0.0
-		yhigh  = -1 # -1 for default
-		var    = 1
-		lloc   = "best"
+	title  = "FileTitle.png" # "None" for no print
+	ytitle = "X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$"
+	xtitle = "Star Mass, " r"$[ M\ /\ M_{\odot} ]$"
+	ylow   = 0.0
+	yhigh  = -1 # -1 for default
+	var    = 1
+	lloc   = "best"
 
 The variable 'var' determines the variable plotted on the y-axis. This corresponds to:
 
