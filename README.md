@@ -12,7 +12,7 @@ Any problems that you can't figure out yourself, feel free to email me: df00177@
 
 ===========================
 
-In order to change the variable being plotted in 'VisualiseXRay_Freq.py' head to the bottom of the code [line 311] and edit these lines to what you need:
+In order to change the variable being plotted in 'VisualiseXRay_Freq.py' head to the bottom of the code [line 351] and edit these lines to what you need:
 
 	title  = "FileTitle.png" # "None" for no print
 	ytitle = "X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$"
