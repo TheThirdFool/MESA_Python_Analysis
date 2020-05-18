@@ -260,9 +260,45 @@ def PrintHelp():
 	print "on one graph. The temprature setting is to be used with"
 	print "the 'TemperatureData.txt' file outputted by 'XRayFreq.py'."
 	print ""
+	print "python VisualiseXRay_Freq.py -h2 : Prints advanced help."
+	print ""
 	print "Enjoy!"
 	print ""
 
+def PrintHelp2():
+	print ""
+	print "VisualiseXRay_Freq.py - Advanced Help"
+	print "====================================="
+	print ""
+	print "In order to change the variable being plotted, head to the bottom"
+	print "of the code [line 311] and edit these lines to what you need:"
+	print ""
+	print "  title  = 'FileTitle.png' # 'None' for no print"
+	print "  ytitle = 'ytitle' "
+	print "  xtitle = 'xtitle' "
+	print "  ylow   = 0.0 "
+	print "  yhigh  = -1 # -1 for default"
+	print "  var    = 1 "
+	print "  lloc   = 'best'"
+	print ""
+	print "The variable 'var' determines the variable plotted on the y-axis."
+	print "This corresponds to:"
+	print ""
+	print "  Res = [Mass, Freq, TimP, NoPk, APL, AVL, ART, AFT]"
+	print "          0  ,  1  ,  2  ,  3  ,  4 ,  5 ,  6 ,  7  " 
+	print "Or:"
+	print ""
+	print "  0 = NS Mass"
+	print "  1 = X-ray burst frequency"
+	print "  2 = X-ray burst time period"
+	print "  3 = Number of peaks analysed"
+	print "  4 = Average peak luminosity"
+	print "  5 = Average valley luminosity"
+	print "  6 = Average rise time"
+	print "  7 = Average fall time"
+	print ""
+	print "Enjoy!"
+	print ""
 
 def Main():
 
@@ -282,6 +318,10 @@ def Main():
 
 	if sys.argv[1] == "-h":
 		PrintHelp()
+		return
+
+	if sys.argv[1] == "-h2":
+		PrintHelp2()
 		return
 
 	if len(sys.argv) < 4:
@@ -308,12 +348,12 @@ def Main():
 	#	DrawData3(Res1[0],Res1[1],Res2[0],Res2[1],Res3[0],Res3[1],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$",0.7,2.2,"MassFrequency_ALL.png","upper right")
 	#	DrawData3(Res1[0],Res1[3],Res2[0],Res2[3],Res3[0],Res3[3],"Star Mass, " r"$[ M\ /\ M_{\odot} ]$","Number of X-Ray Bursts", 0,15, "MassPkNo_ALL.png", "upper left")
 
-		title  = "Mass_XRayBurstFreq_ALL.png" # "None" for no print
-		ytitle = "X-Ray Burst Frequency, " r" $[1\ /\ \mathrm{Hrs}]$""
+		title  = "None" # "None" for no print
+		ytitle = "Average Fall Time [hrs]$"
 		xtitle = "Star Mass, " r"$[ M\ /\ M_{\odot} ]$"
 		ylow   = 0.0
 		yhigh  = -1 # -1 for default
-		var    = 1
+		var    = 6
 		lloc   = "best"
 
 		#Var:
@@ -325,7 +365,7 @@ def Main():
 		# 5 = Average valley luminosity
 		# 6 = Average rise time
 		# 7 = Average fall time
-		
+
 		DrawData3(Res1[0],Res1[var],Res2[0],Res2[var],Res3[0],Res3[var],xtitle,ytitle,ylow,yhigh,title,lloc)
 
 		return
