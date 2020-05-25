@@ -8,7 +8,7 @@ It is worth noting that the code itself has a help option '-h' which has plenty 
 
 Any problems that you can't figure out yourself, feel free to email me: df00177@surrey.ac.uk
 
-I've also slapped in a short script for generating a particularly nice looking Roche Lobe graph. Feel free to use that as an illustrative device. You'll have to use python3 for that though.
+I've also included a short script for generating a particularly nice looking Roche Lobe graph. Feel free to use that as an illustrative device. You'll have to use python3 for that though.
 
 ===============================================
 
