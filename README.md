@@ -12,6 +12,8 @@ Any problems that you can't figure out yourself, feel free to email me: df00177@
 
 I've also included a short script for generating a particularly nice looking Roche Lobe graph. Feel free to use that as an illustrative device. You'll have to use python3 for that though.
 
+This code was written for the Explosive Stellar Phenomena (ESP) module at the University of Surrey - it was also posted to the internal Surrey GitHub.
+
 ===============================================
 
 In order to change the variable being plotted in 'VisualiseXRay_Freq.py' head to the bottom of the code [line 351] and edit these lines to what you need:
